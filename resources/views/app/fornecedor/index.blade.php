@@ -2,22 +2,15 @@
 
 @php
 
-/* if(condicao) {} executa se a condicao for verdadeira 
-já o unless executa se o retorno for falso */
+/* if(isset($variavel)) {} retornar true se a variavel estiver definida
+repare que o isset nao se preocupa com o valor da variavel, só quer saber se existe ou n */
   
 @endphp
 
-Fornecedor: {{ $fornecedores[0]['nome'] }}
+Fornecedor: {{ $fornecedores[1]['nome'] }}
 <br />
-Status: {{ $fornecedores[0]['status'] }}
+Status: {{ $fornecedores[1]['status'] }}
 <br />
-@if(!($fornecedores[0]['status'] == 'S'))
-  Fornecedor Inativo
-@endif
-<br>
-@unless($fornecedores[0]['status'] == 'S') <!-- executa se o retorno da condicao for false -->
-  Fornecedor Inativo
-@endunless
-<br>
-
-{{-- Ou seja, @endunless é igual ao if com !, é preferível usar o @unless--}}
+@isset($fornecedores[1]['cnpj'])
+  CNPJ: {{ $fornecedores[1]['cnpj'] }}
+@endisset
