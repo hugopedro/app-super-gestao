@@ -6,14 +6,16 @@
 
 @isset($fornecedores)
 
-@foreach ( $fornecedores as $indice => $fornecedor )
-  Fornecedor: {{ $fornecedor['nome'] }}
+@forelse ( $fornecedores as $indice => $fornecedor )
+  Fornecedor: @{{ $fornecedor['nome'] }}
   <br />
-  Status: {{ $fornecedor['status'] }}
+  Status: @{{ $fornecedor['status'] }}
   <br />
-  CNPJ: {{ $fornecedor['cnpj'] ?? 'Dado não foi preenchido' }}
+  CNPJ: @{{ $fornecedor['cnpj'] ?? 'Dado não foi preenchido' }}
   <br />
-  Telefone: ({{ $fornecedor['ddd'] ?? '' }} {{ $fornecedor['telefone'] ?? '' }})
+  Telefone: (@{{ $fornecedor['ddd'] ?? '' }} @{{ $fornecedor['telefone'] ?? '' }})
   <hr>
-@endforeach
+  @empty
+  Não há fornecedores cadastrados
+@endforelse
 @endisset
