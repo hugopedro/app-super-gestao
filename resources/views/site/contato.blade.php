@@ -1,5 +1,7 @@
 @extends('site.layouts.basico')
 
+@section('titulo', $titulo) {{-- não precisa de {{}} dentro do section--}}
+
 @section('conteudo')
   <div class="topo">
 
