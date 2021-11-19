@@ -21,8 +21,11 @@ Route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'contato
 
 //nome, categoria, assunto, mensagem
 
-Route::get('/contato/{nome}/{categoria}/{assunto}/{mensagem?}', 
-function (string $nome= 'Desconhecido', string $categoria = 'Informacao',
-          string $assunto = 'Contato', string $mensagem = 'mensagem nao informada') {
-    return "Olá {$nome} - {$categoria}, - {$assunto}, - {$mensagem}";
-});
+Route::get('/contato/{nome}/{categoria_id}', 
+function(
+    string $nome= 'Desconhecido',
+    int $categoria_id = 1 // 1 - Informação
+    ) {
+      return "Olá {$nome} - {$categoria_id}"; 
+    })->where('categoria_id', '[0-9]+')->where('nome', '[A-Za-z]+');
+    // protege que o nome seja apenas letras e que a categoria seja apenas números
