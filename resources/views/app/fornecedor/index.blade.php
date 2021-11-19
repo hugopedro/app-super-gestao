@@ -4,16 +4,26 @@
 
 @endphp
 
+@isset($fornecedores)
 Fornecedor: {{ $fornecedores[0]['nome'] }}
 <br />
 Status: {{ $fornecedores[0]['status'] }}
 <br />
-CNPJ: {{ $fornecedores[1]['cnpj'] ?? 'Dado não foi preenchido' }}
-<!--
-     $variavel testada não estiver definida (isset)
-     ou
-      $variavel testada possuir valor null
-    ... o valor default é usada no lugar da variavel em questão.
-
-
--->
+CNPJ: {{ $fornecedores[0]['cnpj'] ?? 'Dado não foi preenchido' }}
+<br />
+Telefone: ({{ $fornecedores[0]['ddd'] ?? '' }} {{ $fornecedores[0]['telefone'] ?? '' }})
+@switch($fornecedores[0]['ddd'])
+  @case('01')
+        <br />
+        São Paulo - SP
+    @break
+  @case('32')
+        Juiz de Fora - MG
+    @break
+  @case('85')
+        Fortaleza - CE
+    @break
+  @default
+    Estado desconhecido
+@endswitch
+@endisset
