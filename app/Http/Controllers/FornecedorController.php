@@ -34,8 +34,6 @@ class FornecedorController extends Controller
 
         //só pra mostrar o array vazio - mostrando que o forelse funciona
 
-        $fornecedores = [];
-
         return view('app.fornecedor.index', compact('fornecedores'));
     }
 }
