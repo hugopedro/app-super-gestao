@@ -21,7 +21,8 @@ Route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'contato
 
 //nome, categoria, assunto, mensagem
 
-Route::get('/contato/{nome}/{categoria}/{assunto}/{mensagem}', function 
-(string $nome, string $categoria, string $assunto, string $mensagem) {
+Route::get('/contato/{nome}/{categoria}/{assunto}/{mensagem?}', 
+function (string $nome= 'Desconhecido', string $categoria = 'Informacao',
+          string $assunto = 'Contato', string $mensagem = 'mensagem nao informada') {
     return "Olá {$nome} - {$categoria}, - {$assunto}, - {$mensagem}";
 });
