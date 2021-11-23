@@ -14,4 +14,6 @@ class Fornecedor extends Model
     é necessário alterar o nome da tabela manualmente no plural para não dar erro */
 
     protected $table = 'fornecedores';
+    protected $fillable =['nome', 'site', 'uf', 'email'];
+
 }
