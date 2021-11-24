@@ -19,8 +19,7 @@ Route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'contato
 Route::post('/contato', [\App\Http\Controllers\ContatoController::class, 'salvar'])->name('site.contato');
 Route::get('/login', ['login'])->name('site.login');
 
-Route::middleware('autenticacao')->prefix('/app')->group(function() {
-
+Route::middleware('autenticacao:padrao,visitante,p3,p4')->prefix('/app')->group(function() {
 
   Route::get('/clientes', function() {return 'clientes';})->name('app.clientes');  
   Route::get('/fornecedores', [\App\Http\Controllers\FornecedorController::class, 'index'])
