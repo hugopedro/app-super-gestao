@@ -8,9 +8,22 @@ use App\Models\SiteContato;
 class ContatoController extends Controller
 {
     public function contato(Request $request) {
-        $contato = new SiteContato();
-        $contato->create($request->all()); // salva no banco
+        //$contato = new SiteContato();
+        //$contato->create($request->all()); // salva no banco
         //print_r($contato->getAttributes());
         return view('site.contato', ['titulo' => 'Contato(teste)']);
+    }
+
+    public function salvar(Request $request) {
+      //realizar a validação dos dados do formulário recebidos no request
+
+      //os parâmetros são associados de acordo com o name dos inputs (form.contato.blade.php)
+      $this->validate($request, [
+        'nome' => 'required|min:3|max:100',
+        'telefone' => 'required|min:3|max:100',
+        'email' => 'required|email',
+        'mensagem' => 'required|min:3|max:1000'
+      ]);
+       // SiteContato::create($request->all());
     }
 }
