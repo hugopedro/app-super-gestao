@@ -22,7 +22,7 @@ class ContatoController extends Controller
 
       //os parâmetros são associados de acordo com o name dos inputs (form.contato.blade.php)
       $this->validate($request, [
-        'nome' => 'required|min:3|max:100',
+        'nome' => 'required|min:3|max:100|unique:site_contatos',
         'telefone' => 'required|min:3|max:100',
         'email' => 'required|email',
         'motivo_contatos_id' => 'required',
