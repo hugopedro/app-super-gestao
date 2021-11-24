@@ -25,8 +25,10 @@ class ContatoController extends Controller
         'nome' => 'required|min:3|max:100',
         'telefone' => 'required|min:3|max:100',
         'email' => 'required|email',
+        'motivo_contatos_id' => 'required',
         'mensagem' => 'required|min:3|max:1000'
       ]);
-       // SiteContato::create($request->all());
+       SiteContato::create($request->all());
+       return redirect()->route('site.index');
     }
 }
