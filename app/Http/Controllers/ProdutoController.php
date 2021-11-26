@@ -14,7 +14,7 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        //
+        echo '<h1>index</h1>';
     }
 
     /**
@@ -24,7 +24,7 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        //
+        echo "<h1>create</h1>";
     }
 
     /**
@@ -35,7 +35,7 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      echo "<h1>armazenar</h1>";
     }
 
     /**
@@ -46,7 +46,7 @@ class ProdutoController extends Controller
      */
     public function show(Produto $produto)
     {
-        //
+      echo "<h1>mostrar</h1>";
     }
 
     /**
@@ -57,7 +57,7 @@ class ProdutoController extends Controller
      */
     public function edit(Produto $produto)
     {
-        //
+      echo "<h1>editar</h1>";
     }
 
     /**
@@ -69,7 +69,7 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, Produto $produto)
     {
-        //
+      echo "<h1>atualizar</h1>";
     }
 
     /**
@@ -80,6 +80,6 @@ class ProdutoController extends Controller
      */
     public function destroy(Produto $produto)
     {
-        //
+      echo "<h1>destruir</h1>";
     }
 }
