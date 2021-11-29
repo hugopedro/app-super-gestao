@@ -35,6 +35,7 @@ Route::middleware('autenticacao:padrao,visitante,p3,p4')->prefix('/app')->group(
 
   //produtos
   Route::resource('/produto', \App\Http\Controllers\ProdutoController::class); // Com isso o laravel cria todas as rotas! (index,store,create,destroy,update,edit)
+  Route::resource('/produto-detalhe', \App\Http\Controllers\ProdutoDetalheController::class); // Com isso o laravel cria todas as rotas! (index,store,create,destroy,update,edit)
       
 
 });
