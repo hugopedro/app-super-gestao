@@ -70,7 +70,7 @@ class ProdutoController extends Controller
      */
     public function show(Produto $produto)
     {
-      echo "<h1>mostrar</h1>";
+      return view('app.produto.show', ['produto' => $produto]);
     }
 
     /**
