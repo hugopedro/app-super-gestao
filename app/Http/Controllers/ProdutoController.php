@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produto;
+use App\Models\Item;
 use App\Models\Unidade;
+use App\Models\ItemDetalhe;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
@@ -15,7 +17,7 @@ class ProdutoController extends Controller
      */
     public function index(Request $request) // ...e precisa disso pra encaminhar
     {
-        $produtos = Produto::paginate(10);
+        $produtos = Item::paginate(10);
         //encaminhar esses dados pra uma view dentro de resources/views/produto/index
         return view('app.produto.index', ['produtos' => $produtos, 'request' => $request->all()]);
     }
@@ -108,7 +110,7 @@ class ProdutoController extends Controller
     public function destroy(Produto $produto)
     {
       $produto->delete();
-      return redirect()->route('produto.index', ['produto' => $produto->id ]);
+      return redirect()->route('produto.index');
 
     }
 }
