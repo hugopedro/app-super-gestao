@@ -39,7 +39,8 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-      echo "<h1>armazenar</h1>";
+      Produto::create($request->all());
+      return redirect()->route('produto.index');
     }
 
     /**
