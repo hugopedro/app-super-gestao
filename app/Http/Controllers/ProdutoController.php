@@ -17,7 +17,7 @@ class ProdutoController extends Controller
      */
     public function index(Request $request) // ...e precisa disso pra encaminhar
     {
-        $produtos = Item::paginate(10);
+        $produtos = Item::with(['itemDetalhe'])->paginate(10);
         //encaminhar esses dados pra uma view dentro de resources/views/produto/index
         return view('app.produto.index', ['produtos' => $produtos, 'request' => $request->all()]);
     }
