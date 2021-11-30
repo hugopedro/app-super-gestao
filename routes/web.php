@@ -24,7 +24,6 @@ Route::middleware('autenticacao:padrao,visitante,p3,p4')->prefix('/app')->group(
 
   Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('app.home');  
   Route::get('/sair', [\App\Http\Controllers\LoginController::class, 'sair'])->name('app.sair');  
-  Route::get('/cliente', [\App\Http\Controllers\ClienteController::class, 'index'])->name('app.cliente');  
   Route::get('/fornecedor', [\App\Http\Controllers\FornecedorController::class, 'index'])->name('app.fornecedor');
   Route::post('/fornecedor/listar', [\App\Http\Controllers\FornecedorController::class, 'listar'])->name('app.fornecedor.listar');
   Route::get('/fornecedor/listar', [\App\Http\Controllers\FornecedorController::class, 'listar'])->name('app.fornecedor.listar');
@@ -36,6 +35,9 @@ Route::middleware('autenticacao:padrao,visitante,p3,p4')->prefix('/app')->group(
   //produtos
   Route::resource('/produto', \App\Http\Controllers\ProdutoController::class); // Com isso o laravel cria todas as rotas! (index,store,create,destroy,update,edit)
   Route::resource('/produto-detalhe', \App\Http\Controllers\ProdutoDetalheController::class); // Com isso o laravel cria todas as rotas! (index,store,create,destroy,update,edit)
+  Route::resource('/cliente', \App\Http\Controllers\ClienteController::class);
+  Route::resource('/pedido', \App\Http\Controllers\PedidoController::class);
+  Route::resource('/pedido-produto', \App\Http\Controllers\PedidoProdutoController::class);
       
 
 });
