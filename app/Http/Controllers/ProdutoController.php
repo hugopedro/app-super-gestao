@@ -49,7 +49,6 @@ class ProdutoController extends Controller
         'peso' => 'required|integer',
         'unidade_id' => 'exists:unidades,id', //exists:<tabela>,<coluna>
         'fornecedor_id' => 'exists:fornecedores,id',
-        'fornecedor_id.exists' => 'O fornecedor informado não existe',
       ]; 
 
       $feedback = [
@@ -60,6 +59,7 @@ class ProdutoController extends Controller
         'descricao.max' => 'O campo descrição deve ter no máximo 2000 caracteres',
         'peso.integer' => 'O campo peso deve ser um número inteiro',
         'unidade_id.exists' => 'A unidade de medida informada não existe',
+        'fornecedor_id.exists' => 'O fornecedor informado não existe',
       ];
 
       $request->validate($regras, $feedback);
